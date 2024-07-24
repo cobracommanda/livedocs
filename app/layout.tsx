@@ -1,6 +1,7 @@
 import { Inter as FontSans } from "next/font/google";
-import "./globals.css";
+
 import { cn } from "@/lib/utils";
+import "./globals.css";
 import { Metadata } from "next";
 import { ClerkProvider } from "@clerk/nextjs";
 import { dark } from "@clerk/themes";
@@ -25,7 +26,10 @@ export default function RootLayout({
     <ClerkProvider
       appearance={{
         baseTheme: dark,
-        variables: { colorPrimary: "#3371FF", fontSize: "16px" },
+        variables: {
+          colorPrimary: "#3371FF",
+          fontSize: "16px",
+        },
       }}
     >
       <html lang="en" suppressHydrationWarning>
