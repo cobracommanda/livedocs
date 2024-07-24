@@ -25,4 +25,3 @@ const ActiveCollaborators = () => {
 };
 
 export default ActiveCollaborators;
-// https://youtu.be/y5vE8y_f_OM?list=RDCMUCmXmlB4-HJytD7wek0Uo97A&t=4974
