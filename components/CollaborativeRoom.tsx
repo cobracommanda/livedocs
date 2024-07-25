@@ -1,4 +1,5 @@
 "use client";
+
 import { ClientSideSuspense, RoomProvider } from "@liveblocks/react/suspense";
 import { Editor } from "@/components/editor/Editor";
 import Header from "@/components/Header";
@@ -33,10 +34,15 @@ const CollaborativeRoom = ({
       try {
         if (documentTitle !== roomMetadata.title) {
           const updatedDocument = await updateDocument(roomId, documentTitle);
+
+          if (updatedDocument) {
+            setEditing(false);
+          }
         }
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
+
       setLoading(false);
     }
   };
@@ -51,6 +57,7 @@ const CollaborativeRoom = ({
         updateDocument(roomId, documentTitle);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
